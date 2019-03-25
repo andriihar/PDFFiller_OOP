@@ -1,18 +1,17 @@
 <?php
 
-spl_autoload_register(function ($class) {
-    $className = $class . '.php';
-    if (!file_exists($className)) {
-        die('Wrong Class name' . PHP_EOL);
-    }
+use App\Car\LightAbstractCar;
+use App\Car\TruckAbstractCar;
+use App\Displayers\JsonDisplayer;
 
-    require_once $className;
+require __DIR__ . '/vendor/autoload.php';
 
-});
 
-$lightCar = new LightCar('Tesla', 2018, 'X', 'ASFAS888324FSD224534', 'Full package');
-$truck = new TruckCar('Volvo', 2013, 'FS24', 'AS324FSDFS7682224534', '15 ton');
+$displayer = new JsonDisplayer();
 
-echo  $lightCar->getFullInfo(), PHP_EOL;
-echo  $truck->getFullInfo(), PHP_EOL;
+$lightCar = new LightAbstractCar($displayer, 'Tesla', 2018, 'X', 'ASFAS888324FSD224534', 'Full package');
+$truck = new TruckAbstractCar($displayer, 'Volvo', 2013, 'FS24', 'AS324FSDFS7682224534', 15);
+
+echo $lightCar->displayInfo(), PHP_EOL;
+echo $truck->displayInfo(), PHP_EOL;
 
