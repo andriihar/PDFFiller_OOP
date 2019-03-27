@@ -1,11 +1,11 @@
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+
 use App\Car\LightAbstractCar;
 use App\Car\TruckAbstractCar;
 use App\Displayers\JsonDisplayer;
-
-require __DIR__ . '/vendor/autoload.php';
-
+use App\SingletonObject;
 
 $displayer = new JsonDisplayer();
 
@@ -15,3 +15,6 @@ $truck = new TruckAbstractCar($displayer, 'Volvo', 2013, 'FS24', 'AS324FSDFS7682
 echo $lightCar->displayInfo(), PHP_EOL;
 echo $truck->displayInfo(), PHP_EOL;
 
+print_r($obj = SingletonObject::getInstance());
+print_r($obj2 = SingletonObject::getInstance());
+var_dump($obj === $obj2);

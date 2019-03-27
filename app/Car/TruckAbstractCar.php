@@ -26,7 +26,7 @@ class TruckAbstractCar extends AbstractCar
     }
 
 
-    protected function carInfo()
+    protected function carInfo(): array
     {
         return array_merge(parent::carInfo(), ['Load Capacity' => $this->getLoadCapacity()]);
     }

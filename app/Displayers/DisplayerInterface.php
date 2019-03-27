@@ -5,5 +5,5 @@ namespace App\Displayers;
 
 interface DisplayerInterface
 {
-    public function display($data);
+    public function display(array $data);
 }

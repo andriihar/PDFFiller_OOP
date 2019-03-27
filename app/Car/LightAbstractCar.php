@@ -26,7 +26,7 @@ class LightAbstractCar extends AbstractCar
     }
 
 
-    protected function carInfo()
+    protected function carInfo(): array
     {
         return array_merge(parent::carInfo(), ['Package' => $this->getPackage()]);
     }

@@ -29,8 +29,6 @@ abstract class AbstractCar
 
     public function __construct(DisplayerInterface $displayer, string $brand, int $year, string $model, string $vin)
     {
-
-
         $this->displayer = $displayer;
         $this->brand = $brand;
         $this->year = $year;
@@ -38,7 +36,7 @@ abstract class AbstractCar
         $this->vin = $vin;
     }
 
-    protected function carInfo()
+    protected function carInfo(): array
     {
         return [
             'Model' => $this->getModel(),
